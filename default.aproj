@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project ver="10" name="E-PhotoAlbum" libEmbed="true" icon="..." ui="win" output="E-PhotoAlbum.exe" CompanyName="单位名称" FileDescription="E-PhotoAlbum" LegalCopyright="Copyright (C) 作者 2021" ProductName="E-PhotoAlbum" InternalName="E-PhotoAlbum" FileVersion="0.0.0.1" ProductVersion="0.0.0.1" publishDir="/dist/" dstrip="true" local="false" ignored="false">
+	<file name="main.aardio" path="main.aardio" comment="main.aardio"/>
+	<folder name="资源文件" path="res" embed="true" local="false" ignored="false">
+		<file name="create.html" path="res\create.html" comment="res\create.html"/>
+		<file name="mainForm.html" path="res\mainForm.html" comment="res\mainForm.html"/>
+		<folder name="icons" path="res\icons" comment="res\icons" local="false" embed="false" ignored="false">
+			<file name="background.png" path="res\icons\background.png" comment="res\icons\background.png"/>
+			<file name="close.svg" path="res\icons\close.svg" comment="res\icons\close.svg"/>
+			<file name="cover.png" path="res\icons\cover.png" comment="res\icons\cover.png"/>
+			<file name="min.svg" path="res\icons\min.svg" comment="res\icons\min.svg"/>
+			<file name="page.png" path="res\icons\page.png" comment="res\icons\page.png"/>
+		</folder>
+	</folder>
+	<folder name="窗体文件" path="dlg" comment="目录" embed="true" local="false" ignored="false">
+		<folder name="HTML" path="dlg\HTML" comment="dlg\HTML"/>
+		<folder name="icons" path="dlg\icons" comment="dlg\icons">
+			<file name="background.png" path="dlg\icons\background.png" comment="dlg\icons\background.png"/>
+			<file name="close.svg" path="dlg\icons\close.svg" comment="dlg\icons\close.svg"/>
+			<file name="cover.png" path="dlg\icons\cover.png" comment="dlg\icons\cover.png"/>
+			<file name="min.svg" path="dlg\icons\min.svg" comment="dlg\icons\min.svg"/>
+			<file name="page.png" path="dlg\icons\page.png" comment="dlg\icons\page.png"/>
+		</folder>
+		<folder name="IMG" path="dlg\IMG" comment="dlg\IMG">
+			<file name="close.svg" path="dlg\IMG\close.svg" comment="dlg\IMG\close.svg"/>
+			<file name="max.svg" path="dlg\IMG\max.svg" comment="dlg\IMG\max.svg"/>
+			<file name="min.svg" path="dlg\IMG\min.svg" comment="dlg\IMG\min.svg"/>
+			<file name="nomal.svg" path="dlg\IMG\nomal.svg" comment="dlg\IMG\nomal.svg"/>
+		</folder>
+	</folder>
+	<folder name="user" path="user" comment="user" local="false" embed="false" ignored="false">
+		<folder name="album" path="user\album" comment="user\album" local="false" embed="false" ignored="false">
+			<file name="album.json" path="user\album\album.json" comment="user\album\album.json"/>
+			<folder name="test" path="user\album\test" comment="user\album\test" local="false" embed="false" ignored="false">
+				<file name="create.html" path="user\album\test\create.html" comment="user\album\test\create.html"/>
+				<file name="info.json" path="user\album\test\info.json" comment="user\album\test\info.json"/>
+				<file name="mainForm.html" path="user\album\test\mainForm.html" comment="user\album\test\mainForm.html"/>
+				<folder name="icons" path="user\album\test\icons" comment="user\album\test\icons" local="false" embed="false" ignored="false">
+					<file name="background.png" path="user\album\test\icons\background.png" comment="user\album\test\icons\background.png"/>
+					<file name="close.svg" path="user\album\test\icons\close.svg" comment="user\album\test\icons\close.svg"/>
+					<file name="cover.png" path="user\album\test\icons\cover.png" comment="user\album\test\icons\cover.png"/>
+					<file name="min.svg" path="user\album\test\icons\min.svg" comment="user\album\test\icons\min.svg"/>
+					<file name="page.png" path="user\album\test\icons\page.png" comment="user\album\test\icons\page.png"/>
+				</folder>
+				<folder name="photos" path="user\album\test\photos" comment="user\album\test\photos">
+					<file name="1.gif" path="user\album\test\photos\1.gif" comment="user\album\test\photos\1.gif"/>
+					<file name="4042989.png" path="user\album\test\photos\4042989.png" comment="user\album\test\photos\4042989.png"/>
+					<file name="album.png" path="user\album\test\photos\album.png" comment="user\album\test\photos\album.png"/>
+					<file name="屏幕截图 2021-11-26 224739.gif" path="user\album\test\photos\屏幕截图 2021-11-26 224739.gif" comment="user\album\test\photos\屏幕截图 2021-11-26 224739.gif"/>
+					<file name="屏幕截图 2021-12-17 182112.png" path="user\album\test\photos\屏幕截图 2021-12-17 182112.png" comment="user\album\test\photos\屏幕截图 2021-12-17 182112.png"/>
+					<file name="屏幕截图 2021-12-17 182143 - 副本.png" path="user\album\test\photos\屏幕截图 2021-12-17 182143 - 副本.png" comment="user\album\test\photos\屏幕截图 2021-12-17 182143 - 副本.png"/>
+					<file name="屏幕截图 2021-12-17 182143.png" path="user\album\test\photos\屏幕截图 2021-12-17 182143.png" comment="user\album\test\photos\屏幕截图 2021-12-17 182143.png"/>
+					<file name="微信图片_20190826172935.jpg" path="user\album\test\photos\微信图片_20190826172935.jpg" comment="user\album\test\photos\微信图片_20190826172935.jpg"/>
+					<file name="微信图片_20190826173248.jpg" path="user\album\test\photos\微信图片_20190826173248.jpg" comment="user\album\test\photos\微信图片_20190826173248.jpg"/>
+					<file name="微信图片_20190826173337.jpg" path="user\album\test\photos\微信图片_20190826173337.jpg" comment="user\album\test\photos\微信图片_20190826173337.jpg"/>
+					<file name="微信图片_20190826173347.jpg" path="user\album\test\photos\微信图片_20190826173347.jpg" comment="user\album\test\photos\微信图片_20190826173347.jpg"/>
+					<file name="微信图片_20190826173408.jpg" path="user\album\test\photos\微信图片_20190826173408.jpg" comment="user\album\test\photos\微信图片_20190826173408.jpg"/>
+					<file name="微信图片_20190826173614.jpg" path="user\album\test\photos\微信图片_20190826173614.jpg" comment="user\album\test\photos\微信图片_20190826173614.jpg"/>
+					<file name="微信图片_20190826173620.jpg" path="user\album\test\photos\微信图片_20190826173620.jpg" comment="user\album\test\photos\微信图片_20190826173620.jpg"/>
+					<file name="微信图片_20190826173628.jpg" path="user\album\test\photos\微信图片_20190826173628.jpg" comment="user\album\test\photos\微信图片_20190826173628.jpg"/>
+					<file name="微信图片_20190826173635.jpg" path="user\album\test\photos\微信图片_20190826173635.jpg" comment="user\album\test\photos\微信图片_20190826173635.jpg"/>
+					<file name="微信图片_20190826173641.jpg" path="user\album\test\photos\微信图片_20190826173641.jpg" comment="user\album\test\photos\微信图片_20190826173641.jpg"/>
+					<file name="微信图片_20190826173647.jpg" path="user\album\test\photos\微信图片_20190826173647.jpg" comment="user\album\test\photos\微信图片_20190826173647.jpg"/>
+					<file name="微信图片_20190826173652.jpg" path="user\album\test\photos\微信图片_20190826173652.jpg" comment="user\album\test\photos\微信图片_20190826173652.jpg"/>
+					<file name="微信图片_20190826173658.jpg" path="user\album\test\photos\微信图片_20190826173658.jpg" comment="user\album\test\photos\微信图片_20190826173658.jpg"/>
+					<file name="微信图片_20190826173702.jpg" path="user\album\test\photos\微信图片_20190826173702.jpg" comment="user\album\test\photos\微信图片_20190826173702.jpg"/>
+					<file name="微信图片_20190826173712.jpg" path="user\album\test\photos\微信图片_20190826173712.jpg" comment="user\album\test\photos\微信图片_20190826173712.jpg"/>
+					<file name="微信图片_20190826173718.jpg" path="user\album\test\photos\微信图片_20190826173718.jpg" comment="user\album\test\photos\微信图片_20190826173718.jpg"/>
+					<file name="微信图片_20190826173723.jpg" path="user\album\test\photos\微信图片_20190826173723.jpg" comment="user\album\test\photos\微信图片_20190826173723.jpg"/>
+					<file name="微信图片_20190826173728.jpg" path="user\album\test\photos\微信图片_20190826173728.jpg" comment="user\album\test\photos\微信图片_20190826173728.jpg"/>
+					<file name="微信图片_20190826173732.jpg" path="user\album\test\photos\微信图片_20190826173732.jpg" comment="user\album\test\photos\微信图片_20190826173732.jpg"/>
+					<file name="微信图片_20190826173738.jpg" path="user\album\test\photos\微信图片_20190826173738.jpg" comment="user\album\test\photos\微信图片_20190826173738.jpg"/>
+					<file name="微信图片_20190826173743.jpg" path="user\album\test\photos\微信图片_20190826173743.jpg" comment="user\album\test\photos\微信图片_20190826173743.jpg"/>
+					<file name="微信图片_20190826173749.jpg" path="user\album\test\photos\微信图片_20190826173749.jpg" comment="user\album\test\photos\微信图片_20190826173749.jpg"/>
+					<file name="微信图片_20190826174009.jpg" path="user\album\test\photos\微信图片_20190826174009.jpg" comment="user\album\test\photos\微信图片_20190826174009.jpg"/>
+					<file name="微信图片_20190826174019.jpg" path="user\album\test\photos\微信图片_20190826174019.jpg" comment="user\album\test\photos\微信图片_20190826174019.jpg"/>
+					<file name="微信图片_20190826174025.jpg" path="user\album\test\photos\微信图片_20190826174025.jpg" comment="user\album\test\photos\微信图片_20190826174025.jpg"/>
+					<file name="微信图片_20190826174029.jpg" path="user\album\test\photos\微信图片_20190826174029.jpg" comment="user\album\test\photos\微信图片_20190826174029.jpg"/>
+					<file name="微信图片_20190826174035.jpg" path="user\album\test\photos\微信图片_20190826174035.jpg" comment="user\album\test\photos\微信图片_20190826174035.jpg"/>
+					<file name="微信图片_20190826174040.jpg" path="user\album\test\photos\微信图片_20190826174040.jpg" comment="user\album\test\photos\微信图片_20190826174040.jpg"/>
+					<file name="微信图片_20190826174046.jpg" path="user\album\test\photos\微信图片_20190826174046.jpg" comment="user\album\test\photos\微信图片_20190826174046.jpg"/>
+					<file name="微信图片_20190826174050.jpg" path="user\album\test\photos\微信图片_20190826174050.jpg" comment="user\album\test\photos\微信图片_20190826174050.jpg"/>
+					<file name="微信图片_20190826174055.jpg" path="user\album\test\photos\微信图片_20190826174055.jpg" comment="user\album\test\photos\微信图片_20190826174055.jpg"/>
+					<file name="微信图片_20190826174059.jpg" path="user\album\test\photos\微信图片_20190826174059.jpg" comment="user\album\test\photos\微信图片_20190826174059.jpg"/>
+					<file name="微信图片_20190826174103.jpg" path="user\album\test\photos\微信图片_20190826174103.jpg" comment="user\album\test\photos\微信图片_20190826174103.jpg"/>
+					<file name="微信图片_20190826174107.jpg" path="user\album\test\photos\微信图片_20190826174107.jpg" comment="user\album\test\photos\微信图片_20190826174107.jpg"/>
+					<file name="微信图片_20190826174111.jpg" path="user\album\test\photos\微信图片_20190826174111.jpg" comment="user\album\test\photos\微信图片_20190826174111.jpg"/>
+					<file name="微信图片_20190826174116.jpg" path="user\album\test\photos\微信图片_20190826174116.jpg" comment="user\album\test\photos\微信图片_20190826174116.jpg"/>
+					<file name="微信图片_20190826174120.jpg" path="user\album\test\photos\微信图片_20190826174120.jpg" comment="user\album\test\photos\微信图片_20190826174120.jpg"/>
+					<file name="微信图片_20190826174127.jpg" path="user\album\test\photos\微信图片_20190826174127.jpg" comment="user\album\test\photos\微信图片_20190826174127.jpg"/>
+					<file name="微信图片_20190826174131.jpg" path="user\album\test\photos\微信图片_20190826174131.jpg" comment="user\album\test\photos\微信图片_20190826174131.jpg"/>
+					<file name="微信图片_20190826174136.jpg" path="user\album\test\photos\微信图片_20190826174136.jpg" comment="user\album\test\photos\微信图片_20190826174136.jpg"/>
+					<file name="微信图片_20190826174141.jpg" path="user\album\test\photos\微信图片_20190826174141.jpg" comment="user\album\test\photos\微信图片_20190826174141.jpg"/>
+					<file name="微信图片_20190826174147.jpg" path="user\album\test\photos\微信图片_20190826174147.jpg" comment="user\album\test\photos\微信图片_20190826174147.jpg"/>
+					<file name="微信图片_20190826174153.jpg" path="user\album\test\photos\微信图片_20190826174153.jpg" comment="user\album\test\photos\微信图片_20190826174153.jpg"/>
+					<file name="微信图片_20190826174159.jpg" path="user\album\test\photos\微信图片_20190826174159.jpg" comment="user\album\test\photos\微信图片_20190826174159.jpg"/>
+					<file name="微信图片_20190826174203.jpg" path="user\album\test\photos\微信图片_20190826174203.jpg" comment="user\album\test\photos\微信图片_20190826174203.jpg"/>
+					<file name="微信图片_20190826174208.jpg" path="user\album\test\photos\微信图片_20190826174208.jpg" comment="user\album\test\photos\微信图片_20190826174208.jpg"/>
+					<file name="微信图片_20190826174212.jpg" path="user\album\test\photos\微信图片_20190826174212.jpg" comment="user\album\test\photos\微信图片_20190826174212.jpg"/>
+					<file name="微信图片_20190826174229.jpg" path="user\album\test\photos\微信图片_20190826174229.jpg" comment="user\album\test\photos\微信图片_20190826174229.jpg"/>
+					<file name="微信图片_20190826174235.jpg" path="user\album\test\photos\微信图片_20190826174235.jpg" comment="user\album\test\photos\微信图片_20190826174235.jpg"/>
+					<file name="微信图片_20190826174241.jpg" path="user\album\test\photos\微信图片_20190826174241.jpg" comment="user\album\test\photos\微信图片_20190826174241.jpg"/>
+					<file name="微信图片_20190826174245.jpg" path="user\album\test\photos\微信图片_20190826174245.jpg" comment="user\album\test\photos\微信图片_20190826174245.jpg"/>
+					<file name="无标题.jpg" path="user\album\test\photos\无标题.jpg" comment="user\album\test\photos\无标题.jpg"/>
+				</folder>
+			</folder>
+		</folder>
+		<folder name="setting" path="user\setting" comment="user\setting" local="false" embed="false" ignored="false">
+			<file name="application.json" path="user\setting\application.json" comment="user\setting\application.json"/>
+		</folder>
+	</folder>
+</project>

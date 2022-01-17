@@ -1,0 +1,221 @@
+import win.ui;
+import web.view;
+import web.json;
+import winex;
+import win;
+import fsys;
+import console;
+import win.dlg.message;
+
+var fileExtension =	{"*.apng",	"*.avif",	"*.bmp", 
+					"*.gif",	"*.jpg",	"*.jpeg",	
+					"*.jfif", 	"*.pjpeg",	"*.pjp",	
+					"*.png", 	"*.svg",	"*.webp"}
+
+function saveThumbnail(filePath, savePath, width, height, scale) {
+	import gdip.image;
+    gdip.image(filePath).getThumbnail(width, height, scale).save(savePath);
+}
+
+
+var isZoomed;
+var windowId;
+
+mainForm = win.form(text = "E-PhotoAlbum"; right = 799; bottom = 599; maximize = 1; mode = "popup"; title = false);
+mainForm.add(
+    static = { cls="static"; left=208; top=208; right=297; bottom=249; hide=1; transparent=1; z=1 }
+);
+
+
+setting = web.json.parse(string.load("\user\setting\application.json"));
+..webView = setting.webView;
+
+HTML = web.view(mainForm);
+
+
+var files, album = fsys.list("\user\album");
+console.log(table.tostring(album));
+num = console.getNumber( "请选择相簿:");
+if(io.exist("\user\album\" + album[num] + "\photos")){
+	
+}
+var content, dir = fsys.list("\user\album\" + album[num] + "\photos", "");
+win.msgbox("\user\album\" + album[num] + "\photos");
+
+var x = 1;
+var nContentPath = table.array();
+var nContentName = table.array();
+
+while (content[x] != null) {
+    nContentPath[x] = "./photos/" + content[x];
+    nContentName[x] = content[x];
+    x++;
+}
+contentP = web.json.stringifyArray(nContentPath, true, false, true);
+contentN = web.json.stringifyArray(nContentName, true, false, true);
+table.clear(nContentPath);
+var content, dir = fsys.list("\user\album\" + album[num] + "\photos\thumbnails\", "", fileExtension);
+x = 1;
+while (content[x] != null) {
+    nContentPath[x] = "./photos/thumbnails/" + content[x];
+    x++;
+}
+contentT = web.json.stringifyArray(nContentPath, true, false, true);
+win.msgbox(contentT);
+
+var msgBox = win.dlg.message(mainForm);
+
+HTML.external = {
+    mainForm = mainForm;
+    minSize = function () {
+        mainForm.show(6/*_SW_MINIMIZE*/);
+    }
+    maxSize = function () {
+        mainForm.show(3/*_SW_MAXIMIZE*/);
+    }
+    setting = string.load(album[album[num]] + "\info.json");
+    contentP = contentP;
+    contentN = contentN;
+    contentT = contentT;
+    
+    view = function(src){
+        src = string.split(src, "/")[table.len(string.split(src, "/"))];
+    	var winform = win.form(text="E-PhotoAlbum 图片查看";right=799;bottom=599;maximize=1;min=false)
+		winform.add(plus={cls="plus";left=8;top=8;right=792;bottom=592;border={radius=16};db=1;dl=1;dr=1;dt=1;foreRepeat="scale";repeat="scale";z=1});
+    	winform.plus.background = "\user\album\" + album[num] + "\photos\" + src;
+    	winform.show();
+    }
+    
+
+    createAlbum = function () {
+        import win.ui;
+        import web.blink.portable;
+        import win;
+        winform = win.form(text = "E-PhotoAlbum"; right = 1000; bottom = 600; bgcolor = 16777215; border = "dialog frame"; max = false; min = false; mode = "popup")
+        var loading = win.form(text="Loading";right=231;bottom=71;border="dialog frame";exmode="toolwindow";mode="popup";title=false);
+		loading.add(info={cls="static";text="loading...";left=8;top=8;right=224;bottom=64;align="center";center=1;db=1;dl=1;dr=1;dt=1;font=LOGFONT(h=-19;name='更纱黑体 UI SC');transparent=1;z=1});
+        loading.show();
+        NAlbum = web.blink.form(winform);
+        NAlbum.go("\user\album\" + album[num] + "\create.html");
+        NAlbum.external = {
+            done = function (res) {
+                import win.dlg.message;
+                import web.json;
+                import fsys;
+                import win.ui;
+                import win;
+                import fsys.dlg.dir;
+                var progress = win.form(text = "loading..."; right = 335; bottom = 79; border = "dialog frame"; mode = "popup"; title = false)
+                progress.add(
+                	closeButton={cls="button";text="关闭";left=256;top=50;right=328;bottom=72;db=1;dr=1;dt=0.63;font=LOGFONT(name='更纱黑体 UI SC');hide=1;z=4};
+                    progressShow = { cls="progress"; left=8; top=32; right=328; bottom=48; db=1; dl=1; dr=1; dt=0.4; edge=1; font=LOGFONT(name = '更纱黑体 UI SC'); max=100; min=0; z=2 };
+                	statement = { cls="static"; text="正在创建..."; left=8; top=56; right=328; bottom=72; align="right"; font=LOGFONT(name = '更纱黑体 UI SC'); transparent=1; z=3 };
+                	title = { cls="static"; text="正在创建相册..."; left=8; top=8; right=328; bottom=24; db=0.7; dl=1; dr=1; dt=1; font=LOGFONT(h = -14; name='更纱黑体 UI SC'); transparent=1; z=1 }
+				)
+				
+				progress.closeButton.oncommand = function(id,event){
+					progress.close();
+					win.delay(200);
+                	winform.close();
+				}
+
+                result = web.json.parse(res);
+                var msgBox = win.dlg.message(mainForm);
+                var source = fsys.dlg.dir(fsys.getSpecialDefault(0/*_CSIDL_DESKTOP*/),, "打开需导入的照片所在的文件夹", "打开",, false);
+                progress.progressShow.pos = 0;
+                progress.show();
+                win.delay(2000);
+                progress.statement.text = "正在创建相册文件夹...";
+                fsys.createDir("\user\album\" + result.title);
+				progress.progressShow.pos = 5;
+                win.delay(1000);
+                progress.statement.text = "正在储存相册配置文件...";
+                string.save("\user\album\"+ result.title + "\info.json", res);
+				progress.progressShow.pos = 15;
+                win.delay(1000);
+                progress.statement.text = "正在复制必要的相册组件...";
+                fsys.copy("\res\mainForm.html", "\user\album\"+ result.title + "\mainForm.html");
+				fsys.copy("\res\create.html", "\user\album\"+ result.title + "\create.html");
+				progress.progressShow.pos = 20;
+                fsys.createDir("\user\album\" + result.title + "\icons");
+				fsys.createDir("\user\album\" + result.title + "\photos");
+				fsys.createDir("\user\album\" + result.title + "\photos\thumbnails\");
+				progress.progressShow.pos = 25;
+                fsys.copy("\res\icons\background.png", "\user\album\"+ result.title + "\icons\background.png");
+				fsys.copy("\res\icons\close.svg", "\user\album\"+ result.title + "\icons\close.svg");
+				fsys.copy("\res\icons\cover.png", "\user\album\"+ result.title + "\icons\cover.png");
+				fsys.copy("\res\icons\min.svg", "\user\album\"+ result.title + "\icons\min.svg");
+				fsys.copy("\res\icons\page.png", "\user\album\"+ result.title + "\icons\page.png");
+				win.delay(1000);
+				progress.progressShow.pos = 40;
+                progress.statement.text = "相册基本信息创建完成，正在导入照片...";
+                
+                var fileExtension =	{"*.apng",	"*.avif",	"*.bmp", 
+					"*.gif",	"*.jpg",	"*.jpeg",	
+					"*.jfif", 	"*.pjpeg",	"*.pjp",	
+					"*.png", 	"*.svg",	"*.webp"}
+                var content, dir = fsys.list(source, "", fileExtension);
+				var x = 1;
+				var stepLength = 40 / table.len(content);
+				while (content[x] != null) {
+        			fsys.copy(content[content[x]], "\user\album\" + result.title + "\photos\" + content[x]);
+        			x++;
+        			progress.progressShow.pos = progress.progressShow.pos + stepLength;
+        			win.peekPumpInputMessage();
+    			}
+    			progress.progressShow.pos = 80;
+    			progress.statement.text = "正在生成照片缩略图...";
+    			win.delay(1000);
+    			var content, dir = fsys.list("\user\album\" + result.title + "\photos", "", fileExtension);
+    			stepLength = 20 / table.len(content);
+    			x = 1;
+    			while (content[x] != null) {
+        			saveThumbnail(content[content[x]], "\user\album\" + result.title + "\photos\thumbnails\" + content[x] ,512, 512, true);
+        			win.peekPumpInputMessage();
+        			progress.progressShow.pos = progress.progressShow.pos + stepLength;
+        			x++;
+    			}
+    			x = 1;
+    			
+    			progress.statement.text = "相册创建完成";
+                progress.progressShow.pos = 100;
+                win.delay(1000);
+                progress.statement.hide = true;
+				progress.closeButton.hide = false;
+            }
+            
+
+        }
+		NAlbum.waitDoc();
+        win.delay(2000);
+        
+        loading.close();
+		
+        winform.show();
+
+    }
+    /*isZoomed = function(){
+            if(win.isZoomed(winex.find(,"E-PhotoAlbum")) == false){
+                return 0;
+            }else{
+                return 1;
+            }
+        }
+        console = console;*/
+
+
+}
+
+HTML.export({
+    alert = function (msg) {
+        msgBox.info(msg);
+    };
+
+})
+HTML.go("\user\album\" + album[num] + "\mainForm.html");
+
+mainForm.show();
+import console;
+windowId = winex.find(, "E-PhotoAlbum")
+//console.print(windowId);
+return win.loopMessage();
