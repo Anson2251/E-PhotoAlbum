@@ -1,0 +1,310 @@
+<!--for aardio web.blink-->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-image: url("./icons/background.png");
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: default;
+            filter: opacity(1);
+            transition: all 0.5s;
+            margin: 0;
+            overflow: hidden;
+            /*margin-top: 2.5em;*/
+        }
+        
+        .body {
+            background-image: url("./icons/background.png");
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: default;
+            filter: opacity(1);
+            transition: all 0.5s;
+            margin: 0;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            /*margin-top: 2.5em;*/
+        }
+        
+        button {
+            border: none;
+            border-radius: 0.5em;
+            background-color: #F0F0F0;
+            height: 2em;
+            padding-left: 1em;
+            padding-right: 1em;
+            box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.2);
+            font-size: 0.9em;
+            font-family: "更纱黑体 UI SC";
+            color: black;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            box-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.3);
+            background-color: #E8E8E8;
+            transition: all 0.3s;
+        }
+        
+        button:active {
+            box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.4);
+            background-color: #E0E0E0;
+            transform: translateY(1px);
+            transition: all 0.3s;
+            outline: none;
+        }
+        
+        p {
+            font-size: 1em;
+            font-family: "更纱黑体 UI SC";
+        }
+        
+        input {
+            border: none;
+            border-radius: 0.5em;
+            background-color: rgba(255, 255, 255, 0.2);
+            height: 2em;
+            padding: 1em;
+            box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.2);
+            font-size: 0.9em;
+            font-family: "更纱黑体 UI SC";
+            color: black;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            transition: all 0.3s;
+        }
+        
+        input:hover {
+            box-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s;
+        }
+        
+        input:active {
+            border: none;
+            outline: none;
+            outline-width: 0px;
+            box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(1px);
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s;
+        }
+    </style>
+    <style>
+        .input {
+            border: none;
+            border-radius: 0.5em;
+            background-color: rgba(255, 255, 255, 0.2);
+            height: 2em;
+            padding: 1em;
+            box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.2);
+            font-size: 0.9em;
+            font-family: "更纱黑体 UI SC";
+            color: black;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            transition: all 0.3s;
+        }
+        
+        .input:hover {
+            box-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s;
+        }
+        
+        .input:active {
+            border: none;
+            outline: none;
+            outline-width: 0px;
+            box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(1px);
+            transition: all 0.3s;
+        }
+        
+        .input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s;
+        }
+        
+        .album-l {
+            position: absolute;
+            top: 0em;
+            left: 5em;
+            right: 52%;
+            bottom: 0em;
+            padding: 1em;
+            border-radius: 0.5em 0.2em 0.2em 0.5em;
+            /*box-shadow: */
+            box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 1), inset -0.5em -0.5em 1em rgba(0, 0, 0, 0.5), inset 0.3em 0.3em 0.3em rgba(255, 255, 255, 0.5);
+            border: rgba(0, 0, 0, 0.4);
+            border-width: 2px;
+            transform-origin: right;
+            background-image: url("./icons/cover.png");
+            animation-name: album-l-start;
+            animation-duration: 4s;
+            transform: perspective(120em) rotateY(0deg);
+            transition: all 4s;
+        }
+        
+        .album-r {
+            position: absolute;
+            left: 5em;
+            right: 5em;
+            top: 0em;
+            left: 52%;
+            right: 5em;
+            bottom: 0em;
+            border-radius: 0.2em 0.5em 0.5em 0.2em;
+            box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 1), inset -0.5em -0.5em 1em rgba(0, 0, 0, 0.5), inset 0em 0.3em 0.3em rgba(255, 255, 255, 0.5), inset 0.5em 0em 1em rgba(0, 0, 0, 0.5);
+            border: rgba(0, 0, 0, 0.4);
+            border-width: 2px;
+            transform-origin: left;
+            background-image: url("./icons/cover.png");
+            animation-name: album-r-start;
+            animation-duration: 4s;
+            transform: perspective(120em) rotateY(360deg);
+            transition: all 4s;
+        }
+        
+        .spine {
+            position: absolute;
+            top: 0em;
+            left: 47%;
+            right: 47%;
+            bottom: 0em;
+            background-image: url("./icons/cover.png");
+            box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 1), inset -0.5em -0.5em 1em rgba(0, 0, 0, 0.5), inset 0em 0.3em 0.3em rgba(255, 255, 255, 0.5);
+            border: rgba(0, 0, 0, 0.4);
+            border-width: 2px;
+        }
+        
+        .tool-bar {
+            height: auto;
+            width: fit-content;
+            display: inline-block;
+            /*background-color: rgba(226, 102, 1, 0.1);*/
+            background-color: rgba(255, 255, 255, 0.5);
+            bottom: 0.5em;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 1em;
+            box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.2);
+            padding: 0.5em;
+            animation-name: tool-bar-start;
+            animation-duration: 1s;
+            transition: all 0.5s;
+        }
+        
+        .tool-bar:active {
+            transform: translateY(1px) scale(99.5%);
+            transition: all 0.5s;
+        }
+        
+        .tool-bar-button {
+            position: relative;
+            border: none;
+            border-radius: 0.5em;
+            background-color: rgba(255, 255, 255, 0.4);
+            padding-left: 0em;
+            padding-right: 0em;
+            height: 3em;
+            width: 3em;
+            box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.2);
+            color: black;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .frame {
+            position: fixed;
+            top: 8em;
+            left: 5em;
+            right: 5em;
+            bottom: 5em;
+        }
+        
+        .page-l {
+            position: absolute;
+            top: 1em;
+            left: 6em;
+            right: 50%;
+            bottom: 1em;
+            padding: 1em;
+            border-radius: 0.5em 0em 0em 0.5em;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5), inset -0.5em 0em 2em rgba(0, 0, 0, 0.8);
+            transform-origin: right;
+            background-image: url("./icons/page.png");
+            animation-name: paper-l-start;
+            animation-duration: 4s;
+            transform: perspective(120em) rotateY(0deg);
+            transition: all 4s;
+        }
+        
+        .page-r {
+            position: absolute;
+            transform-origin: left;
+            transform: perspective(120em) rotateY(360deg);
+            top: 1em;
+            left: 50%;
+            right: 6em;
+            bottom: 1em;
+            padding: 1em;
+            border-radius: 0em 0.5em 0.5em 0em;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5), inset 0.5em 0em 2em rgba(0, 0, 0, 0.8);
+            transform-origin: left;
+            background-image: url("./icons/page.png");
+            animation-name: paper-r-start;
+            animation-duration: 4s;
+            transition: all 4s;
+        }
+    </style>
+    <script>
+        function done() {
+            var result = {
+                title: document.getElementById("inputTitle").value,
+                description: document.getElementById("inputText1").value,
+                description2: document.getElementById("inputText2").value
+            };
+            external.done(JSON.stringify(result));
+        }
+    </script>
+</head>
+
+<body>
+    <div style="position: fixed;left: 10em;right: 10em;top: 1em;bottom: calc(100%-5em);">
+        <input type="text" class="input" style="height:100%;width:100%; font-size: 2.5em; padding: 0.5em;padding-left: 0.5em;padding-right: 0.5em;" title="标题" placeholder="请输入相册标题" id="inputTitle">
+    </div>
+
+    <div class="frame" id="frame">
+        <div class="spine "></div>
+        <div class="album-r" id="album-r"></div>
+        <div class="page-r" id="page-r"><textarea type="text" style="width:100%; height:100%" class="input" title="文本" placeholder="请输入文本" id="inputText2"></textarea></div>
+        <div class="album-l" id="album-l"><textarea type="text" style="width:100%; height: 100%" class="input" title="文本" placeholder="请输入文本" id="inputText1"></textarea></div>
+        <div class="page-l" id="page-l" style="display: none;"></div>
+    </div>
+    <div style="position: fixed; bottom:1em; right:1em; height:2em; width:6em;"><button style="height:100%; width:100%;" onclick="done()">下一步</button></div>
+    <!--<div style="position: fixed; left:0;right:0;bottom: 1em;">
+        <center>
+            <div id="toolsBar" class="tool-bar">
+            </div>
+        </center>
+    </div>!-->
+</body>
+
+</html>
